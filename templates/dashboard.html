@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DSS Bank of India</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container dashboard-container">
+        <header class="bank-header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="DSS Bank of India Logo" class="logo">
+            <h1>DSS BANK OF INDIA</h1>
+            <a href="{{ url_for('logout') }}" class="btn-logout">Logout</a>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages-dashboard">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <main class="button-grid">
+            <a href="#" class="nav-button">WITHDRAW</a>
+            <a href="#" class="nav-button">FUNDS TRANSFER</a>
+            <a href="#" class="nav-button">DEPOSIT</a>
+            <a href="#" class="nav-button">ACCOUNT DETAILS</a>
+            <a href="#" class="nav-button">STATEMENT</a>
+        </main>
+
+    </div>
+
+</body>
+</html>
